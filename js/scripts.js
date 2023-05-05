@@ -108,8 +108,8 @@ function desenharMapa() {
 
     let options = {
         title: 'Mapa mundial com dados do COVID-19 ',
-        width: 800,
-        height: 500,
+        // width: 800,
+        // height: 500,
         colorAxis: { colors: ['#f09975', '#e2492e', '#a02517', '#5d0000'] }
     };
 
@@ -127,9 +127,10 @@ function desenharGrafico() {
 
     var options = {
         title: 'Tabela com dados de mortes no mundo',
-        width: 800,
-        height: 500,
-        backgroundColor: 'rgb(222, 214, 214)'
+        // width: 800,
+        // height: 500,
+        backgroundColor: 'rgb(222, 214, 214)',
+        legend: {position: 'bottom'}
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('pizza'));
@@ -140,37 +141,63 @@ function desenharGrafico() {
 google.charts.load('current', {'packages':['table']});
 google.charts.setOnLoadCallback(desenharTabela);
 
-function prepararDadosTabela(dados) {
-    let dados_tabela = [];
-    if (dados['data'].length > 0) {
-        dados_tabela.push(['Estado', 'Confirmados', 'Mortes', 'Suspeitos', 'Cancelados']);
-        for (let i = 0; i < dados['data'].length; i++) {
-            dados_tabela.push([
-                dados['data'][i].state,
-                dados['data'][i].cases,
-                dados['data'][i].deaths,
-                dados['data'][i].suspects,
-                dados['data'][i].refuses
-            ]);
-        }
-    }
-    desenharTabela(dados_tabela);
-}
+var  dados_tabela = [];
 
 google.charts.load('current', { 'packages': ['table'] });
 google.charts.setOnLoadCallback(desenharTabela);
 
+function prepararDadosTabela(dados) {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Estado');
+    data.addColumn('number', 'Confirmados');
+    data.addColumn('number', 'Mortes');
+    data.addColumn('number', 'Suspeitos');
+    data.addColumn('number', 'Cancelados');
+    data.addRows([    ['Acre', 100000, 2000, 300, 4000],
+      ['Alagoas', 150000, 3000, 400, 5000],
+      ['Amapá', 50000, 1000, 200, 1000],
+      ['Amazonas', 350000, 8000, 1000, 9000],
+      ['Bahia', 500000, 10000, 1500, 12000],
+      ['Ceará', 400000, 7500, 800, 8000],
+      ['Distrito Federal', 903.944, 11.854, 500, 3000],
+      ['Espírito Santo', 250000, 5000, 700, 4000],
+      ['Goiás', 300000, 6000, 1000, 6000],
+      ['Maranhão', 200000, 3500, 500, 4000],
+      ['Mato Grosso', 150000, 2500, 400, 2000],
+      ['Mato Grosso do Sul', 100000, 2000, 300, 1500],
+      ['Minas Gerais', 600000, 12000, 2000, 15000],
+      ['Pará', 250000, 5000, 800, 5000],
+      ['Paraíba', 200000, 4000, 600, 4000],
+      ['Paraná', 400000, 8000, 1000, 7000],
+      ['Pernambuco', 350000, 7000, 900, 6000],
+      ['Piauí', 100000, 1500, 300, 2000],
+      ['Rio de Janeiro', 700000, 15000, 2000, 20000],
+      ['Rio Grande do Norte', 150000, 3000, 400, 3000],
+      ['Rio Grande do Sul', 350000, 7000, 900, 8000],
+      ['Rondônia', 50000, 1000, 200, 1000],
+      ['Roraima', 20000, 500, 100, 500],
+      ['Santa Catarina', 400000, 8000, 1000, 7000],
+      ['São Paulo', 1000000, 20000, 3000, 25000],
+      ['Sergipe', 100000, 2000, 300, 2500],
+      ['Tocantins', 50000, 1000, 200, 1000]
+    ]);
+
+    var table = new google.visualization.Table(document.getElementById('tabela')); 
+    table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
+
+}
+
+
 function desenharTabela(dados) {
-    let data = new google.visualization.arrayToDataTable(dados);
-
-    let table = new google.visualization.Table(document.getElementById('tabela'));
-
-    table.draw(data, { showRowNumber: true, width: '400px', height: '600px' });
-
-    let options = {
-        title: 'Tabela com dados de COVID-19 no Brasil'
-
-    }
+    console.table(dados)
 
 
 }
+
+document.addEventListener(  "carregarDados",
+                            function(event) {
+                                desenharGrafico();
+                                desenharMapa();
+                                desenharTabela();
+                            }
+);

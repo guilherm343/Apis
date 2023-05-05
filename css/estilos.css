@@ -1,3 +1,4 @@
+/* Default styles */
 body {
   margin: 0;
   border: 0;
@@ -7,8 +8,6 @@ body {
   flex-direction: column;
 }
 
-
-/*Cabeçalho*/
 header {
   margin-top: 0;
   background-color: #0c93aa;
@@ -37,11 +36,9 @@ header nav a:hover {
   color: #23a98e;
 }
 
-/*Fim do header*/
 #container {
   text-align: center;
 }
-
 
 #btnObterDados {
   padding: 10px 25px;
@@ -75,6 +72,7 @@ header nav a:hover {
 
 #pizza {
   background-color: rgb(222, 214, 214);
+  width: 50%;
 }
 
 #coisas {
@@ -86,100 +84,94 @@ header nav a:hover {
   margin-top: 50px;
 }
 
-
-
-
-
 #texto-inf {
-    display: flex;
-    margin: 20px;
+  display: flex;
+  margin: 20px;
 }
 
 #img-frn {
-    width: 600px;
-    height: 500px;
-    border-radius: 20px;
+  width: 600px;
+  height: 500px;
+  border-radius: 20px;
 }
 
 #img-sobre {
-    width:550px;
-    margin-right: 90px;
-    margin-top: 100px;
-    
+  width: 550px;
+  margin-right: 90px;
+  margin-top: 100px;
 }
 
 #texto-sobre {
-    width: 800px;
+  width: 800px;
 }
 
 #texto-sobre p {
-    text-align: left;
-    font-size: 18px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: left;
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #texto-sobre h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: bold;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
 }
 
-
 #objetivo-frn {
-    display: flex;
-    margin-top: 50px;
-    width: 800px;
+  display: flex;
+  margin-top: 50px;
+  width: 800px;
 }
 
 #img-obj {
-    width: 100px;
-    margin-left: 30px;
-    margin-top: 100px;
-    padding: 10px;
+  width: 100px;
+  margin-left: 30px;
+  margin-top: 100px;
+  padding: 10px;
 }
 
 #texto-objetivo {
-    margin-right: 10px;
-    padding: 0px;
-    width: 800px;
-    margin-top: 50px;
-    margin-left: 20px;
+  margin-right: 10px;
+  padding: 0px;
+  width: 800px;
+  margin-top: 50px;
+  margin-left: 20px;
 }
 
 #foto-obj {
-    width: 600px;
-    border-radius: 10px;
+  width: 600px;
+  border-radius: 10px;
 }
 
 #texto-objetivo p {
-    text-align: left;
-    font-size: 18px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: left;
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
 #container-frn {
-    padding: 20px 100px 100px 100px;
-    text-align: center;
+  padding: 20px 100px 100px 100px;
+  text-align: center;
 }
 
 .destaques {
-    padding-top: 50px;
-    display: flex;
-    justify-content: space-around;
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .destaques-ferramenta {
-    padding: 0px 15px;
+  padding: 0px 15px;
 }
 
 
 
 #frm-container-sbr {
-    text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10px;
-    font-weight: bold;
-    
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 10px;
+  font-weight: bold;
+
 }
 
 h1 {
@@ -200,4 +192,208 @@ footer {
   width: 100%;
   position: fixed;
   margin-top: auto;
+}
+
+@media only screen and (max-width: 767px) {
+
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0;
+    width: 100%;
+  }
+
+  header nav {
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+  }
+
+  header nav a {
+    margin-left: 20px;
+    padding: 10px 15px;
+    font-size: 18px;
+  } 
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+  }
+
+
+  #btnObterDados {
+    margin-top: 40px;
+    padding: 15px 30px;
+    font-size: 20px;
+  }
+
+
+  #mapa {
+    margin: 0;
+    margin-top: 40px;
+    width: 90%;
+    height: 500px;
+
+  }
+
+  #tabela {
+    width: 80%;
+    margin-left: 5%;
+  }
+
+
+  #pizza {
+    margin: 40px, 10px;
+    margin-top: 40px;
+    width: 90%;
+  }
+
+
+  #coisas {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #texto-inf {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #img-sobre {
+    width: 80%;
+    margin-right: 0px;
+    margin-top: 20px;
+  }
+
+  #texto-sobre {
+    width: 90%;
+    margin: auto;
+  }
+
+  #texto-sobre p {
+    font-size: 16px;
+  }
+
+  #objetivo-frn {
+    flex-direction: column;
+  }
+
+  #img-obj {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  #texto-objetivo {
+    margin: 20px 0;
+  }
+
+  #foto-obj {
+    width: 100%;
+  }
+}
+
+
+/* Estilos para telas com largura entre 768px e 1024px */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  header {
+    height: auto;
+  }
+
+  header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  header nav a {
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+  }
+
+  #container {
+    margin-top: 20px;
+  }
+
+  #mapa {
+    margin-top: 20px;
+    width: 40%;
+    height: 400px;
+  }
+
+  #coisas {
+    flex-direction: column;
+  }
+
+  #tabela {
+    margin-top: 20px;
+    width: 10%;
+  }
+
+  #div-erro {
+    margin-top: 20px;
+  }
+
+  #btnObterDados {
+    margin-top: 20px;
+  }
+
+  
+  #texto-inf {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #img-sobre {
+    width: 20%;
+    margin-right: 0px;
+    margin-top: 20px;
+  }
+
+  #texto-sobre {
+    width: 90%;
+    margin: auto;
+  }
+
+  #texto-sobre p {
+    font-size: 11px;
+  }
+
+  #objetivo-frn {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  #img-obj {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  #texto-objetivo {
+    margin: 0px ;
+    width: 80%;
+  }
+
+  #foto-obj {
+    width: 100%;
+  }
+
+
+
+  .destaques-ferramenta {
+    font-size: 11px;
+  }
+
 }
